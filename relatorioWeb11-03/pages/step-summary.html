@@ -1,0 +1,1919 @@
+
+    <!--
+    Copyright 2019 trivago N.V.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    -->
+    <!DOCTYPE html>
+    <html lang="en">
+    <base href="..">
+    <head title="Relatorio de execucao - All Steps">
+        <title>Relatorio de execucao - All Steps</title>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="Content-Security-Policy" content="default-src *  data: blob: 'unsafe-inline' 'unsafe-eval';
+script-src * data: blob: 'unsafe-inline' 'unsafe-eval';
+connect-src * data: blob: 'unsafe-inline';
+img-src * data: blob: 'unsafe-inline';
+frame-src * data: blob: ;
+style-src * data: blob: 'unsafe-inline';
+font-src * data: blob: 'unsafe-inline';"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Relatorio de execucao">
+<meta name="author" content="Cluecumber Report Plugin version 2.3.4">
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="css/datatables.min.css">
+<link rel="stylesheet" href="css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="css/jquery.fancybox.min.css"/>
+<link rel="stylesheet" href="css/cluecumber.css" type="text/css">
+<link rel="stylesheet" href="css/cluecumber-custom.css"/>
+<link rel="stylesheet" href="css/cluecumber-additional.css"/>
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/datatables.min.js"></script>
+<script src="js/jquery.fancybox.min.js"></script>
+<script src="js/Chart.bundle.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+            // Data tables
+            $('.renderAsDataTable').on('draw.dt', function () {
+                $('[data-toggle="tooltip"]').tooltip();
+            }).DataTable({
+                "oLanguage": {
+                    "sSearch": "Search:"
+                },
+                "pageLength": 25,
+                "responsive": true
+            });
+
+            $('.collapse').on('shown.bs.collapse', function (e) {
+                $(e.target).find("iframe").each(function (index, iframe) {
+                    resizeIframe(iframe);
+                })
+            });
+
+            // Lightbox
+            $("a.grouped_elements").fancybox();
+
+            // Tool tips
+            $('[data-toggle="tooltip"]').tooltip();
+
+            // Chart
+            var canvas = document.getElementById('chart-area');
+            var ctx = canvas.getContext("2d");
+            var chart = new Chart(ctx, {
+  "data": {
+    "labels": [
+      "clico no botao continuar na tela de Esqueci minha senha",
+      "o extrato Cult e exibido",
+      "clico no botao Atualizar Dados",
+      "a mensagem de erro {} deve ser exibida",
+      "aguardinho",
+      "preencho os dados invalidos",
+      "que eu informo o CPF do Meu Alelo {}",
+      "preencho o CPF {}",
+      "seleciono o primeiro produto",
+      "a pagina Onde Aceita sera exibida",
+      "insiro o novo email",
+      "clico no cartao refeicao ou alimentacao com status {}",
+      "preencho os dados",
+      "clico no botao alterar senha",
+      "clico no icone alterar senha",
+      "a mensagem {} deve ser exibida",
+      "clico no botao continuar",
+      "preencho o novo Email {}",
+      "a mensagem de confirmacao de dados atualizados e exibida",
+      "que estou logado com CPF {} e Senha {}",
+      "que eu clico no botao de Cadastrar",
+      "clico no botao Ok para recuperar senha",
+      "clico no botao de Extrato do cartao Alimentacao",
+      "a mensagem de usuario cadastrado e exibida",
+      "a pagina do Clube Alelo e aberta",
+      "preencho a data de validade {}",
+      "o extrato Multi e exibido",
+      "clico no botao CADASTRAR",
+      "o erro no fluxo de esqueci email e exibido {}",
+      "clico no botao Entrar",
+      "a mensagem de confirmacao de email alterado e exibida",
+      "e exibida as mensagens de desbloqueios um {}, dois {}, tres {}, quatro {} do cartao com o status",
+      "o extrato Ali e exibido",
+      "preencho novo CPF",
+      "que eu clico no botão de Esqueci minha senha",
+      "o erro de CPF cadastrado e exibido {}",
+      "que eu clico no botao Rede de Aceitacao",
+      "clico no botao de Extrato do cartao Refeicao",
+      "clico no saldo do cartao",
+      "coloco o mouse sobre o menu de Perfil",
+      "preencho o CVV {}",
+      "que eu clico no botao Duvidas frequentes",
+      "clico em continuar no fluxo de esqueci email cvv",
+      "clico no botao de Meu Perfil",
+      "senha do Meu Alelo {}",
+      "confirmo o email {}",
+      "clico no botao de Extrato do cartao Cultura",
+      "clico no botao de Esqueci o Email",
+      "a mensagem de erro e exibida {}",
+      "os erros devem ser exibidos",
+      "preencho um CPF existente {}",
+      "confirmo o email",
+      "preencho a senha nova {}",
+      "a pagina Home do Meu Alelo sera exibida",
+      "clico no botao de Clube Alelo",
+      "o extrato Ref e exibido",
+      "o cartao e o saldo devem ser exibidos",
+      "e exibida as mensagens de desbloqueio um {}, dois {}, tres {}, quatro {} e cinco {} do cartao com o status",
+      "a mensagem de dados incorretos deve ser exibida {}",
+      "a pagina duvidas frequentes sera aberta",
+      "estou na tela Home",
+      "o informativo de envio de senha e exibido",
+      "preencho a senha antiga {}",
+      "clico no botao de Extrato do cartao Multibeneficios"
+    ],
+    "datasets": [
+      {
+        "data": [
+          5,
+          1,
+          1,
+          1,
+          4,
+          1,
+          14,
+          5,
+          4,
+          1,
+          1,
+          0,
+          1,
+          3,
+          3,
+          2,
+          3,
+          1,
+          1,
+          9,
+          3,
+          1,
+          1,
+          1,
+          1,
+          2,
+          1,
+          2,
+          1,
+          20,
+          1,
+          3,
+          1,
+          2,
+          5,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          1,
+          6,
+          1,
+          14,
+          1,
+          1,
+          2,
+          2,
+          1,
+          1,
+          1,
+          3,
+          7,
+          1,
+          1,
+          1,
+          1,
+          2,
+          1,
+          4,
+          2,
+          3,
+          1
+        ],
+        "backgroundColor": [
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)"
+        ],
+        "label": "passed"
+      },
+      {
+        "data": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "backgroundColor": [
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)"
+        ],
+        "label": "failed"
+      },
+      {
+        "data": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          25,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "backgroundColor": [
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)"
+        ],
+        "label": "skipped"
+      }
+    ]
+  },
+  "options": {
+    "scales": {
+      "xAxes": [
+        {
+          "ticks": {
+            "min": 0,
+            "stepSize": 0,
+            "display": false
+          },
+          "stacked": true,
+          "scaleLabel": {
+            "display": true,
+            "labelString": "64 Steps"
+          },
+          "stepSize": 0.0
+        }
+      ],
+      "yAxes": [
+        {
+          "ticks": {
+            "min": 0,
+            "stepSize": 25,
+            "display": true
+          },
+          "stacked": true,
+          "scaleLabel": {
+            "display": true,
+            "labelString": "Number of Usages"
+          },
+          "stepSize": 0.0
+        }
+      ]
+    },
+    "events": [
+      "click",
+      "mousemove"
+    ]
+  },
+  "type": "bar"
+});
+
+            var original;
+            if (chart.config.type === "pie") {
+                original = Chart.defaults.pie.legend.onClick;
+            } else {
+                original = Chart.defaults.global.legend.onClick;
+            }
+
+            chart.options.onClick = function (evt, elements) {
+                if (chart.config.type !== "pie") return;
+                chartArea = elements[0];
+                if (chartArea === undefined) return;
+                chartArea.hidden = !chartArea.hidden;
+                chart.update();
+                toggleVisibilityByStatus(chartArea._model.label, !chartArea.hidden)
+            };
+
+            chart.options.legend.onClick = function (evt, label) {
+                original.call(this, evt, label);
+                toggleVisibilityByStatus(label.text, label.hidden);
+            };
+
+            function toggleVisibilityByStatus(statusText, show) {
+                var card = $("#card_" + statusText);
+                if (card !== undefined) {
+                    if (show) {
+                        card.show();
+                    } else {
+                        card.hide();
+                    }
+                }
+
+                var row = $(".table-row-" + statusText);
+                if (row !== undefined) {
+                    if (show) {
+                        row.show();
+                    } else {
+                        row.hide();
+                    }
+                }
+            }
+
+
+            if (false) {
+                $(".btn-outline-secondary[data-cluecumber-item='before-after-hooks-button']").click();
+            }
+            if (false) {
+                $(".btn-outline-secondary[data-cluecumber-item='step-hooks-button']").click();
+            }
+            if (false) {
+                $(".btn-outline-secondary[data-cluecumber-item='doc-strings-button']").click();
+            }
+        }
+    );
+
+    function resizeIframe(iframe) {
+        iframe.style.height = (iframe.contentWindow.document.body.scrollHeight + 25) + 'px';
+    }
+</script>    </head>
+    <body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                                <a class="nav-link " href="index.html">All Scenarios</a>
+                    </li>
+                    <li class="nav-item">
+                                <a class="nav-link " href="pages/scenario-sequence.html">Scenario Sequence</a>
+                    </li>
+                    <li class="nav-item">
+                                <a class="nav-link " href="pages/tag-summary.html">All Tags</a>
+                    </li>
+                    <li class="nav-item">
+                                <a class="nav-link text-white" href="pages/step-summary.html">All Steps</a>
+                    </li>
+                    <li class="nav-item">
+                                <a class="nav-link " href="pages/feature-summary.html">All Features</a>
+                    </li>
+            </ul>
+            <span class="text-light">2022-03-11 09:51:57</span>
+        </div>
+    </nav>
+    <main role="main" class="container">
+        <div class="cluecumber-template">
+            <div class="pb-2 mt-4 mb-2 border-bottom">
+                    <h3>All Steps</h3>
+            </div>
+
+    <div class="row" id="step-summary">
+    <div class="col-sm-9  h-auto" data-cluecumber-item="card">
+        <div class="card h-100">
+                <div class="card-header">Step Summary Result Chart</div>
+            <div class="card-body">
+    <div id="canvas-holder" class="w-100 text-center" style="min-height: 15rem;" data-cluecumber-item="chart">
+        <canvas id="chart-area" class="w-100"></canvas>
+    </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3  h-auto" data-cluecumber-item="card">
+        <div class="card h-100">
+                <div class="card-header">Steps Summary</div>
+            <div class="card-body">
+            <ul class="list-group list-group-flush" data-cluecumber-item="step-summary">
+                <li class="list-group-item">
+                    64         Steps
+ in
+                    <br>
+                    33         Scenarios
+
+                </li>
+                <li class="list-group-item">
+                    33 passed     <i class="color-passed cluecumber-icon icon-passed" data-toggle="tooltip"
+       title="passed"><span style="display:none">passed</span></i>
+
+                    <br>
+                    0 failed     <i class="color-failed cluecumber-icon icon-failed" data-toggle="tooltip"
+       title="failed"><span style="display:none">failed</span></i>
+
+                    <br>
+                    0 skipped    <i class="color-skipped cluecumber-icon icon-skipped" data-toggle="tooltip"
+       title="skipped"><span style="display:none">skipped</span></i>
+
+                </li>
+            </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="row" id="available-steps">
+    <div class="col-sm-12  h-auto" data-cluecumber-item="card">
+        <div class="card h-100">
+                <div class="card-header">Available Steps</div>
+            <div class="card-body">
+            <table id="step_summary" class="table table-hover renderAsDataTable"
+                   data-cluecumber-item="step-summary-table">
+                <thead>
+                <tr>
+                    <th>Step</th>
+                    <th>Total</th>
+                    <th>    <i class="color-passed cluecumber-icon icon-passed" data-toggle="tooltip"
+       title="passed"><span style="display:none">passed</span></i>
+</th>
+                    <th>    <i class="color-failed cluecumber-icon icon-failed" data-toggle="tooltip"
+       title="failed"><span style="display:none">failed</span></i>
+</th>
+                    <th>    <i class="color-skipped cluecumber-icon icon-skipped" data-toggle="tooltip"
+       title="skipped"><span style="display:none">skipped</span></i>
+</th>
+                    <th>Min Time</th>
+                    <th>Max Time</th>
+                    <th>� Time</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.EsqueciMinhaSenhaSteps.clicoNoBotaoContinuarNaTelaDeEsqueciMinhaSenha()">
+                                <a href="pages/step-scenarios/step_392734441.html">clico no botao continuar na tela de Esqueci minha senha</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>5</strong></td>
+                        <td class="text-right">5</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_10.html">0m 00s 363ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_9.html">0m 00s 391ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 373ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.ExtratoSteps.oExtratoCultEExibido()">
+                                <a href="pages/step-scenarios/step_041124856.html">o extrato Cult e exibido</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_14.html">0m 01s 076ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_14.html">0m 01s 076ms</a>
+                        </td>
+                        <td class="text-right small">0m 01s 076ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.CadastroMeuAleloSteps.clicoNoBotaoAtualizarDados()">
+                                <a href="pages/step-scenarios/step_2067886151.html">clico no botao Atualizar Dados</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_2.html">0m 00s 051ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_2.html">0m 00s 051ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 051ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.LoginMaSteps.aMensagemDeErroDeveSerExibida(java.lang.String)">
+                                <a href="pages/step-scenarios/step_1639778747.html">a mensagem de erro {} deve ser exibida</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_23.html">0m 00s 021ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_23.html">0m 00s 021ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 021ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.LoginMaSteps.aguardinho()">
+                                <a href="pages/step-scenarios/step_1474009041.html">aguardinho</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>4</strong></td>
+                        <td class="text-right">4</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_2.html">0m 01s 000ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_21.html">0m 01s 001ms</a>
+                        </td>
+                        <td class="text-right small">0m 01s 000ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.CadastroMeuAleloSteps.preenchoOsDadosInvalidos()">
+                                <a href="pages/step-scenarios/step_1226416149.html">preencho os dados invalidos</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_3.html">0m 00s 674ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_3.html">0m 00s 674ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 674ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.LoginMaSteps.queEuInformoOCPFDoMeuAlelo(java.lang.String)">
+                                <a href="pages/step-scenarios/step_01376350362.html">que eu informo o CPF do Meu Alelo {}</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>14</strong></td>
+                        <td class="text-right">14</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_24.html">0m 00s 074ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_2.html">0m 00s 155ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 120ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.EsqueciMinhaSenhaSteps.preenchoOCPF(java.lang.String)">
+                                <a href="pages/step-scenarios/step_0822564246.html">preencho o CPF {}</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>5</strong></td>
+                        <td class="text-right">5</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_6.html">0m 00s 050ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_7.html">0m 00s 086ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 067ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.CartaoStatusSteps.selecionoOPrimeiroProduto()">
+                                <a href="pages/step-scenarios/step_02012877416.html">seleciono o primeiro produto</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>4</strong></td>
+                        <td class="text-right">4</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_25.html">0m 00s 596ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_27.html">0m 00s 874ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 680ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.LoginMaSteps.aPaginaOndeAceitaSeraExibida()">
+                                <a href="pages/step-scenarios/step_0948021280.html">a pagina Onde Aceita sera exibida</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_19.html">0m 05s 623ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_19.html">0m 05s 623ms</a>
+                        </td>
+                        <td class="text-right small">0m 05s 623ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.CadastroMeuAleloSteps.insiroONovoEmail()">
+                                <a href="pages/step-scenarios/step_0309242866.html">insiro o novo email</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_2.html">0m 00s 048ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_2.html">0m 00s 048ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 048ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="">
+                                <a href="pages/step-scenarios/step_31.html">clico no cartao refeicao ou alimentacao com status {}</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>25</strong></td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">25</td>
+                        <td class="text-right small">
+                        </td>
+                        <td class="text-right small">
+                        </td>
+                        <td class="text-right small">0m 00s 000ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.CadastroMeuAleloSteps.preenchoOsDados()">
+                                <a href="pages/step-scenarios/step_0267985882.html">preencho os dados</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_1.html">0m 00s 952ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_1.html">0m 00s 952ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 952ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.LoginMaSteps.clicoNoBotaoAlterarSenha()">
+                                <a href="pages/step-scenarios/step_01344924041.html">clico no botao alterar senha</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>3</strong></td>
+                        <td class="text-right">3</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_23.html">0m 00s 021ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_22.html">0m 00s 025ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 023ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.LoginMaSteps.clicoNoIconeAlterarSenha()">
+                                <a href="pages/step-scenarios/step_1999433998.html">clico no icone alterar senha</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>3</strong></td>
+                        <td class="text-right">3</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_23.html">0m 00s 045ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_22.html">0m 00s 372ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 159ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.LoginMaSteps.aMensagemDeveSerExibida(java.lang.String)">
+                                <a href="pages/step-scenarios/step_01523398128.html">a mensagem {} deve ser exibida</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>2</strong></td>
+                        <td class="text-right">2</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_22.html">0m 00s 022ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_21.html">0m 00s 028ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 025ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.CadastroMeuAleloSteps.clicoNoBotaoContinuar()">
+                                <a href="pages/step-scenarios/step_01649490812.html">clico no botao continuar</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>3</strong></td>
+                        <td class="text-right">3</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_1.html">0m 00s 059ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_4.html">0m 00s 068ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 063ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.EsqueciMinhaSenhaSteps.preenchoONovoEmail(java.lang.String)">
+                                <a href="pages/step-scenarios/step_0222755949.html">preencho o novo Email {}</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_10.html">0m 00s 193ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_10.html">0m 00s 193ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 193ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.CadastroMeuAleloSteps.aMensagemDeConfirmacaoDeDadosAtualizadosEExibida()">
+                                <a href="pages/step-scenarios/step_1373956438.html">a mensagem de confirmacao de dados atualizados e exibida</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_2.html">0m 01s 088ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_2.html">0m 01s 088ms</a>
+                        </td>
+                        <td class="text-right small">0m 01s 088ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.CartaoStatusSteps.que_estou_logado_com_cpf_e_senha(java.lang.String,java.lang.String)">
+                                <a href="pages/step-scenarios/step_1971004617.html">que estou logado com CPF {} e Senha {}</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>9</strong></td>
+                        <td class="text-right">9</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_29.html">0m 00s 137ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_27.html">0m 00s 211ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 175ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.CadastroMeuAleloSteps.queEuClicoNoBotaoDeCadastrar()">
+                                <a href="pages/step-scenarios/step_02061186544.html">que eu clico no botao de Cadastrar</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>3</strong></td>
+                        <td class="text-right">3</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_3.html">0m 00s 120ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_1.html">0m 00s 145ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 129ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.EsqueciMinhaSenhaSteps.clicoNoBotaoOkParaRecuperarSenha()">
+                                <a href="pages/step-scenarios/step_654494647.html">clico no botao Ok para recuperar senha</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_8.html">0m 00s 065ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_8.html">0m 00s 065ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 065ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.ExtratoSteps.clicoNoBotaoDeExtratoDoCartaoAlimentacao()">
+                                <a href="pages/step-scenarios/step_452387520.html">clico no botao de Extrato do cartao Alimentacao</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_13.html">0m 02s 683ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_13.html">0m 02s 683ms</a>
+                        </td>
+                        <td class="text-right small">0m 02s 683ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.CadastroMeuAleloSteps.aMensagemDeUsuarioCadastradoEExibida()">
+                                <a href="pages/step-scenarios/step_806837167.html">a mensagem de usuario cadastrado e exibida</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_1.html">0m 01s 115ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_1.html">0m 01s 115ms</a>
+                        </td>
+                        <td class="text-right small">0m 01s 115ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.ClubeAleloSteps.aPaginaDoClubeAleloEAberta()">
+                                <a href="pages/step-scenarios/step_1109461144.html">a pagina do Clube Alelo e aberta</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_5.html">0m 10s 000ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_5.html">0m 10s 000ms</a>
+                        </td>
+                        <td class="text-right small">0m 10s 000ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.EsqueciMinhaSenhaSteps.preenchoADataDeValidade(java.lang.String)">
+                                <a href="pages/step-scenarios/step_965948328.html">preencho a data de validade {}</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>2</strong></td>
+                        <td class="text-right">2</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_9.html">0m 00s 344ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_10.html">0m 00s 359ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 351ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.ExtratoSteps.oExtratoMultiEExibido()">
+                                <a href="pages/step-scenarios/step_434766161.html">o extrato Multi e exibido</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_11.html">0m 01s 087ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_11.html">0m 01s 087ms</a>
+                        </td>
+                        <td class="text-right small">0m 01s 087ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.CadastroMeuAleloSteps.clicoNoBotaoCADASTRAR()">
+                                <a href="pages/step-scenarios/step_0113051652.html">clico no botao CADASTRAR</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>2</strong></td>
+                        <td class="text-right">2</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_3.html">0m 00s 054ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_1.html">0m 00s 070ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 062ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.EsqueciMinhaSenhaSteps.oErroNoFluxoDeEsqueciEmailEExibido(java.lang.String)">
+                                <a href="pages/step-scenarios/step_01246408715.html">o erro no fluxo de esqueci email e exibido {}</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_9.html">0m 00s 302ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_9.html">0m 00s 302ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 302ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.LoginMaSteps.clicoNoBotaoEntrar()">
+                                <a href="pages/step-scenarios/step_02088508863.html">clico no botao Entrar</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>20</strong></td>
+                        <td class="text-right">20</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_24.html">0m 00s 029ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_15.html">0m 00s 105ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 069ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.EsqueciMinhaSenhaSteps.aMensagemDeConfirmacaoDeEmailAlteradoEExibida()">
+                                <a href="pages/step-scenarios/step_01921497412.html">a mensagem de confirmacao de email alterado e exibida</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_10.html">0m 00s 581ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_10.html">0m 00s 581ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 581ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.CartaoStatusSteps.eExibidaAsMensagensDeErroUmErroErroDoisErroEErroTresErroDoCartaoComOStatusStatus(java.lang.String,java.lang.String,java.lang.String,java.lang.String)">
+                                <a href="pages/step-scenarios/step_0781967200.html">e exibida as mensagens de desbloqueios um {}, dois {}, tres {}, quatro {} do cartao com o status</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>3</strong></td>
+                        <td class="text-right">3</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_27.html">0m 01s 426ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_25.html">0m 02s 200ms</a>
+                        </td>
+                        <td class="text-right small">0m 01s 942ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.ExtratoSteps.oExtratoAliEExibido()">
+                                <a href="pages/step-scenarios/step_2004049078.html">o extrato Ali e exibido</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_13.html">0m 01s 343ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_13.html">0m 01s 343ms</a>
+                        </td>
+                        <td class="text-right small">0m 01s 343ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.CadastroMeuAleloSteps.preenchoNovoCPF()">
+                                <a href="pages/step-scenarios/step_658070782.html">preencho novo CPF</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>2</strong></td>
+                        <td class="text-right">2</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_1.html">0m 00s 062ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_3.html">0m 00s 070ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 066ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.EsqueciMinhaSenhaSteps.queEuClicoNoBotãoDeEsqueciMinhaSenha()">
+                                <a href="pages/step-scenarios/step_0383797289.html">que eu clico no botão de Esqueci minha senha</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>5</strong></td>
+                        <td class="text-right">5</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_10.html">0m 00s 374ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_8.html">0m 00s 429ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 412ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.CadastroMeuAleloSteps.oErroDeCPFCadastradoEExibido(java.lang.String)">
+                                <a href="pages/step-scenarios/step_2017228150.html">o erro de CPF cadastrado e exibido {}</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_4.html">0m 00s 045ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_4.html">0m 00s 045ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 045ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.LoginMaSteps.queEuClicoNoBotaoRedeDeAceitacao()">
+                                <a href="pages/step-scenarios/step_01304566799.html">que eu clico no botao Rede de Aceitacao</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_19.html">0m 00s 075ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_19.html">0m 00s 075ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 075ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.ExtratoSteps.clicoNoBotaoDeExtratoDoCartaoRefeicao()">
+                                <a href="pages/step-scenarios/step_1091851334.html">clico no botao de Extrato do cartao Refeicao</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_12.html">0m 02s 671ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_12.html">0m 02s 671ms</a>
+                        </td>
+                        <td class="text-right small">0m 02s 671ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.ListaDeCartoesSteps.clicoNoSaldoDoCartao()">
+                                <a href="pages/step-scenarios/step_0750076008.html">clico no saldo do cartao</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_15.html">0m 03s 687ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_15.html">0m 03s 687ms</a>
+                        </td>
+                        <td class="text-right small">0m 03s 687ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.CadastroMeuAleloSteps.colocoOMouseSobreOMenuDePerfil()">
+                                <a href="pages/step-scenarios/step_874518646.html">coloco o mouse sobre o menu de Perfil</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_2.html">0m 00s 268ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_2.html">0m 00s 268ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 268ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.EsqueciMinhaSenhaSteps.preenchoOCVV(java.lang.String)">
+                                <a href="pages/step-scenarios/step_392809652.html">preencho o CVV {}</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>2</strong></td>
+                        <td class="text-right">2</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_10.html">0m 00s 055ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_9.html">0m 00s 059ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 057ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.LoginMaSteps.queEuClicoNoBotaoDuvidasFrequentes()">
+                                <a href="pages/step-scenarios/step_1617429686.html">que eu clico no botao Duvidas frequentes</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_20.html">0m 00s 074ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_20.html">0m 00s 074ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 074ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.EsqueciMinhaSenhaSteps.clicoEmContinuarNoFluxoDeEsqueciEmailCvv()">
+                                <a href="pages/step-scenarios/step_1495132924.html">clico em continuar no fluxo de esqueci email cvv</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>6</strong></td>
+                        <td class="text-right">6</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_10.html">0m 00s 027ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_10.html">0m 00s 063ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 048ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.CadastroMeuAleloSteps.clicoNoBotaoDeMeuPerfil()">
+                                <a href="pages/step-scenarios/step_01581303971.html">clico no botao de Meu Perfil</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_2.html">0m 00s 060ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_2.html">0m 00s 060ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 060ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.LoginMaSteps.senhaDoMeuAlelo(java.lang.String)">
+                                <a href="pages/step-scenarios/step_01697518662.html">senha do Meu Alelo {}</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>14</strong></td>
+                        <td class="text-right">14</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_17.html">0m 00s 085ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_13.html">0m 00s 148ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 104ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.EsqueciMinhaSenhaSteps.confirmoOEmail(java.lang.String)">
+                                <a href="pages/step-scenarios/step_449860670.html">confirmo o email {}</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_10.html">0m 00s 074ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_10.html">0m 00s 074ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 074ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.ExtratoSteps.clicoNoBotaoDeExtratoDoCartaoCultura()">
+                                <a href="pages/step-scenarios/step_01963951842.html">clico no botao de Extrato do cartao Cultura</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_14.html">0m 02s 423ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_14.html">0m 02s 423ms</a>
+                        </td>
+                        <td class="text-right small">0m 02s 423ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.EsqueciMinhaSenhaSteps.clicoNoBotaoDeEsqueciOEmail()">
+                                <a href="pages/step-scenarios/step_970530614.html">clico no botao de Esqueci o Email</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>2</strong></td>
+                        <td class="text-right">2</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_10.html">0m 00s 381ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_9.html">0m 00s 382ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 381ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.EsqueciMinhaSenhaSteps.aMensagemDeErroEExibida(java.lang.String)">
+                                <a href="pages/step-scenarios/step_0219074816.html">a mensagem de erro e exibida {}</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>2</strong></td>
+                        <td class="text-right">2</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_6.html">0m 00s 022ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_7.html">0m 00s 025ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 023ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.CadastroMeuAleloSteps.osErrosDevemSerExibidos()">
+                                <a href="pages/step-scenarios/step_1438788016.html">os erros devem ser exibidos</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_3.html">0m 00s 096ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_3.html">0m 00s 096ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 096ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.CadastroMeuAleloSteps.preenchoUmCPFExistente(java.lang.String)">
+                                <a href="pages/step-scenarios/step_0155218612.html">preencho um CPF existente {}</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_4.html">0m 00s 069ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_4.html">0m 00s 069ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 069ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.CadastroMeuAleloSteps.confirmoOEmail()">
+                                <a href="pages/step-scenarios/step_103513055.html">confirmo o email</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_2.html">0m 00s 096ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_2.html">0m 00s 096ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 096ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.LoginMaSteps.preenchoASenhaNova(java.lang.String)">
+                                <a href="pages/step-scenarios/step_139368378.html">preencho a senha nova {}</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>3</strong></td>
+                        <td class="text-right">3</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_22.html">0m 00s 210ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_21.html">0m 00s 315ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 255ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.LoginMaSteps.aPaginaHomeDoMeuAleloSeraExibida()">
+                                <a href="pages/step-scenarios/step_01862325367.html">a pagina Home do Meu Alelo sera exibida</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>7</strong></td>
+                        <td class="text-right">7</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_16.html">0m 00s 044ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_14.html">0m 00s 082ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 060ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.ClubeAleloSteps.clicoNoBotaoDeClubeAlelo()">
+                                <a href="pages/step-scenarios/step_56180399.html">clico no botao de Clube Alelo</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_5.html">0m 00s 066ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_5.html">0m 00s 066ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 066ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.ExtratoSteps.oExtratoRefEExibido()">
+                                <a href="pages/step-scenarios/step_1503473003.html">o extrato Ref e exibido</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_12.html">0m 01s 329ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_12.html">0m 01s 329ms</a>
+                        </td>
+                        <td class="text-right small">0m 01s 329ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.ListaDeCartoesSteps.oCartaoEOSaldoDevemSerExibidos()">
+                                <a href="pages/step-scenarios/step_778426387.html">o cartao e o saldo devem ser exibidos</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_15.html">0m 00s 021ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_15.html">0m 00s 021ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 021ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.CartaoStatusSteps.eExibidaAsMensagensDeDesbloqueioUmErroDoisErroTresErroQuatroErroECincoErroDoCartaoComOStatus(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)">
+                                <a href="pages/step-scenarios/step_1911106207.html">e exibida as mensagens de desbloqueio um {}, dois {}, tres {}, quatro {} e cinco {} do cartao com o status</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_28.html">0m 02s 237ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_28.html">0m 02s 237ms</a>
+                        </td>
+                        <td class="text-right small">0m 02s 237ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.LoginMaSteps.aMensagemDeDadosIncorretosDeveSerExibida(java.lang.String)">
+                                <a href="pages/step-scenarios/step_01180723096.html">a mensagem de dados incorretos deve ser exibida {}</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>2</strong></td>
+                        <td class="text-right">2</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_18.html">0m 00s 020ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_17.html">0m 00s 024ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 022ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.LoginMaSteps.aPaginaDuvidasFrequentesSeraAberta()">
+                                <a href="pages/step-scenarios/step_0111339612.html">a pagina duvidas frequentes sera aberta</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_20.html">0m 00s 008ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_20.html">0m 00s 008ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 008ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.CartaoStatusSteps.estouNaTelaHome()">
+                                <a href="pages/step-scenarios/step_01939459302.html">estou na tela Home</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>4</strong></td>
+                        <td class="text-right">4</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_28.html">0m 00s 566ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_26.html">0m 00s 583ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 576ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.EsqueciMinhaSenhaSteps.oInformativoDeEnvioDeSenhaEExibido()">
+                                <a href="pages/step-scenarios/step_0708935229.html">o informativo de envio de senha e exibido</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>2</strong></td>
+                        <td class="text-right">2</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_8.html">0m 00s 023ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_9.html">0m 00s 290ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 156ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.LoginMaSteps.preenchoASenhaAntiga(java.lang.String)">
+                                <a href="pages/step-scenarios/step_360161930.html">preencho a senha antiga {}</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>3</strong></td>
+                        <td class="text-right">3</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_23.html">0m 00s 077ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_22.html">0m 00s 100ms</a>
+                        </td>
+                        <td class="text-right small">0m 00s 086ms</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            <span data-toggle="tooltip" title="br.com.alelo.steps.ExtratoSteps.clicoNoBotaoDeExtratoDoCartaoMultibeneficios()">
+                                <a href="pages/step-scenarios/step_02125819468.html">clico no botao de Extrato do cartao Multibeneficios</a>
+                            </span>
+                        </td>
+                        <td class="text-right"><strong>1</strong></td>
+                        <td class="text-right">1</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right">0</td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_11.html">0m 02s 661ms</a>
+                        </td>
+                        <td class="text-right small">
+                                <a href="pages/scenario-detail/scenario_11.html">0m 02s 661ms</a>
+                        </td>
+                        <td class="text-right small">0m 02s 661ms</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+    </div>
+        </div>
+    </main>
+
+<footer class="footer navbar-dark">
+    <div class="container-fluid">
+        <span>Cluecumber Report Plugin version 2.3.4 - Report generated on 2022-03-11 09:51:57.</span>
+    </div>
+</footer>    </body>
+    </html>
+
